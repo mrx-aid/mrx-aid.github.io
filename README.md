@@ -1,29 +1,48 @@
-# Alexandr Azimov — portfolio
+# Alexandr Azimov — портфолио
 
-Personal portfolio: https://mrx-aid.github.io/
+Сайт: https://mrx-aid.github.io/ · English: https://mrx-aid.github.io/en/
 
-Static HTML, CSS and JavaScript. No build step, tracking or third-party runtime dependencies.
+Портфолио на основе ATLAS Preview: космические сцены, диагональная панель, анимации, кейсы с галереями и бюджетами, услуги, условия работы, договоры и контакты. Русская версия основная.
 
-## Local preview
+## Локальный просмотр
 
-Serve the repository root using a static server, for example `python -m http.server 4173`.
+Нужен Node.js 20 или новее. Установка пакетов для обычной сборки не требуется.
 
-## Files
+```sh
+npm start
+```
 
-- `index.html`: Russian content, projects, contacts and metadata.
-- `space.css`: space-inspired responsive design, diagonal overlay and side panel.
-- `layout.css`: fluid wide-screen composition, project preview and self-hosted typography.
-- `script.js`: accessible portfolio dialog, project selection, automatic scenes, pausable particles and email copy button.
-- `assets/`: real project screenshots, favicon and social preview.
+Открыть http://127.0.0.1:4174/. Остановить сервер — Ctrl+C. Порт можно изменить переменной окружения `PORT`.
 
-To add another project, add its screenshot and duplicate a `.project` article. Update the project counter in the navigation. Keep title, link, alt text and description specific to the project.
+## Что редактировать
 
-## Publishing
+- `source/index.html` — общий шаблон страниц.
+- `js/messages.js` — тексты интерфейса RU/EN.
+- `js/portfolio-data.js` — проекты, галереи, бюджеты в рублях и контакты.
+- `source/services.json` — подробные описания услуг.
+- `source/contracts.json` — текст для просмотра договоров; файлы для скачивания лежат в `documents/` и должны обновляться вместе с текстом.
+- `css/` — оформление; `js/portfolio.js` — взаимодействия и модальные окна.
+- `img/` — готовые изображения и очищенное видео кейса Grinity.
+- `site.config.json` — адрес сайта и языковые маршруты.
 
-GitHub Pages serves `main` from the repository root. `.nojekyll` disables Jekyll processing. Update the canonical URL, sitemap and robots file if the domain changes.
+## Сборка и публикация
 
-Project screenshots showcase the author's work. Brand assets belong to their respective owners.
+```sh
+npm run build
+```
 
-Manrope and IBM Plex Mono are self-hosted from the Google Fonts repository. Their SIL Open Font License notices are included in `assets/fonts/`.
+Создаёт сайт в `dist/`. Для обновления публикуемых файлов в корне репозитория:
 
-The space backgrounds were reused from the author's reference site https://alexnesss.github.io/ (img/slide-1.jpg, slide-2.jpg, slide-3.jpg). This repository does not grant any additional rights to those images. No legacy ESCL contacts or project claims were copied.
+```sh
+npm run prepare:pages
+```
+
+Затем проверить изменения, сделать коммит и отправить в `main`. GitHub Pages публикует корень `main`; `.nojekyll` отключает обработку Jekyll. Не редактировать собранные `index.html` и `en/index.html` вместо шаблона.
+
+Предыдущая версия сайта сохранена в ветке `archive/previous-portfolio-2026-10-09`. Локальные резервные архивы и исходная запись мобильного видео не входят в публичную публикацию.
+
+Оставшиеся работы перечислены в [ROADMAP.md](ROADMAP.md).
+
+## Материалы
+
+Кейсы демонстрируют работы автора. Бренды и материалы заказчиков принадлежат их правообладателям. Использованы визуальные материалы исходного ATLAS Preview и сторонние библиотеки с их исходными уведомлениями об авторстве; репозиторий не предоставляет дополнительных прав на них.

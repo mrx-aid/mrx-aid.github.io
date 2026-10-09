@@ -1,0 +1,11 @@
+{
+  "name": "alexandr-azimov-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local ATLAS-based portfolio preview for Alexandr Azimov",
+  "scripts": {
+    "build": "node tools/build-site.mjs",
+    "prepare:pages": "node tools/build-site.mjs && node tools/prepare-pages.mjs",
+    "start": "node tools/build-site.mjs && node server.mjs"
+  }
+}

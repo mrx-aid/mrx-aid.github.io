@@ -1,0 +1,7 @@
+dist/
+node_modules/
+build-manifest.json
+preview-shots/
+*.log
+.DS_Store
+Thumbs.db

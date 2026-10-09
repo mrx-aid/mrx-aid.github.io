@@ -1,0 +1,170 @@
+[
+  {
+    "id": "websites",
+    "icon": "website",
+    "ru": {
+      "title": "Сайты",
+      "intro": "Лендинг, сайт компании или страница проекта — с понятной структурой и удобным просмотром на разных устройствах.",
+      "includes": [
+        {"title": "Структура и сценарий", "text": "Определяем страницы, навигацию и путь посетителя к нужному действию: заявке, покупке или знакомству с проектом."},
+        {"title": "Дизайн и разработка", "text": "Создаю интерфейс и адаптивную вёрстку. Формы, каталог и другие функции включаем по согласованному ТЗ."},
+        {"title": "Подготовка к запуску", "text": "Проверяю основные сценарии, формы и ссылки, настраиваю базовые метаданные и помогаю с публикацией в согласованной среде."}
+      ],
+      "deliverables": ["Рабочий сайт с согласованными страницами и функциями.", "Исходные файлы или репозиторий проекта.", "Инструкции по запуску и обновлению материалов в рамках выбранного решения."],
+      "start": "Расскажите о задаче и аудитории. Пригодятся примеры, список нужных страниц, тексты, изображения и фирменные материалы — если они уже есть.",
+      "note": "Домен, хостинг, лицензии и подготовку контента согласуем отдельно. Их стоимость не включается автоматически в разработку."
+    },
+    "en": {
+      "title": "Websites",
+      "intro": "A landing page, company website or project website with a clear structure and a layout that works across devices.",
+      "includes": [
+        {"title": "Structure and user journey", "text": "We define the pages, navigation and the visitor’s path to an enquiry, purchase or understanding of the project."},
+        {"title": "Design and development", "text": "I create the interface and responsive layout. Forms, a catalogue and other features follow the agreed specification."},
+        {"title": "Getting ready to launch", "text": "I check key flows, forms and links, set up basic metadata and help publish the website in the agreed environment."}
+      ],
+      "deliverables": ["A working website with the agreed pages and features.", "Source files or the project repository.", "Instructions for launching the website and updating content within the chosen solution."],
+      "start": "Tell me about your goals and audience. References, a page list, copy, images and brand materials are useful if you already have them.",
+      "note": "Domains, hosting, licences and content production are agreed separately. Their costs are not automatically included in development."
+    }
+  },
+  {
+    "id": "webapps",
+    "icon": "webapp",
+    "ru": {
+      "title": "Веб-приложения",
+      "intro": "Интерактивный сервис для конкретной задачи: личный кабинет, рабочий инструмент или система с собственными сценариями и данными.",
+      "includes": [
+        {"title": "Сценарии и логика", "text": "Разбираем рабочий процесс, роли пользователей, данные и ограничения. Фиксируем функции первой версии и критерии их проверки."},
+        {"title": "Интерфейс и функции", "text": "Разрабатываю экраны и логику приложения. Авторизацию, хранение данных и права доступа включаем в согласованный объём."},
+        {"title": "Интеграции и передача", "text": "Подключаю предусмотренные ТЗ сервисы, проверяю ключевые сценарии и готовлю проект к развёртыванию."}
+      ],
+      "deliverables": ["Рабочая версия приложения в согласованном объёме.", "Исходный код и перечень зависимостей.", "Инструкции по настройке, запуску и передаче доступов."],
+      "start": "Опишите, кто будет пользоваться приложением и какую задачу оно решает. Для интеграций понадобятся документация сервисов и согласованные доступы.",
+      "note": "Новые модули, постоянное администрирование и развитие после сдачи планируем отдельно от первой версии."
+    },
+    "en": {
+      "title": "Web apps",
+      "intro": "An interactive service for a specific need: a customer portal, a working tool or a system with its own workflows and data.",
+      "includes": [
+        {"title": "Workflows and logic", "text": "We review the process, user roles, data and constraints, then define the first release and its acceptance criteria."},
+        {"title": "Interface and features", "text": "I develop the screens and application logic. Authentication, data storage and access permissions are included as agreed."},
+        {"title": "Integrations and handover", "text": "I connect the services listed in the specification, check key flows and prepare the project for deployment."}
+      ],
+      "deliverables": ["A working application within the agreed scope.", "Source code and a list of dependencies.", "Setup, launch and access handover instructions."],
+      "start": "Describe who will use the application and the problem it should solve. Integrations require service documentation and agreed access.",
+      "note": "New modules, ongoing administration and development after handover are planned separately from the first release."
+    }
+  },
+  {
+    "id": "design",
+    "icon": "design",
+    "ru": {
+      "title": "Дизайн",
+      "intro": "Визуальная концепция и интерфейс сайта или приложения — от структуры экранов до макетов, с которыми можно идти в разработку.",
+      "includes": [
+        {"title": "Направление и прототип", "text": "Обсуждаем задачу, аудиторию и примеры. Выстраиваем структуру экранов и ключевые пользовательские сценарии."},
+        {"title": "Визуальный язык", "text": "Подбираю типографику, цвета и оформление компонентов. Разрабатываю согласованные экраны в едином стиле."},
+        {"title": "Состояния и адаптация", "text": "Продумываю мобильные варианты и нужные состояния элементов. Готовлю макеты и материалы для передачи разработчику."}
+      ],
+      "deliverables": ["Редактируемые макеты согласованных экранов.", "Стили и компоненты, необходимые для этих макетов.", "Графические материалы и пояснения к поведению интерфейса."],
+      "start": "Нужны задача, список экранов и примеры того, что нравится. Если есть фирменный стиль или готовые тексты, включим их в работу.",
+      "note": "Количество вариантов и итераций согласуем в ТЗ. Разработка по макетам — отдельная задача, если она не включена в общий проект."
+    },
+    "en": {
+      "title": "Design",
+      "intro": "A visual concept and interface for a website or app, from screen structure to layouts ready for development.",
+      "includes": [
+        {"title": "Direction and prototype", "text": "We discuss the brief, audience and references, then map the screens and key user journeys."},
+        {"title": "Visual language", "text": "I choose typography, colours and component styling, and design the agreed screens with a consistent look."},
+        {"title": "States and adaptation", "text": "I plan mobile layouts and relevant component states, then prepare designs and assets for developer handover."}
+      ],
+      "deliverables": ["Editable layouts for the agreed screens.", "Styles and components needed for those layouts.", "Graphic assets and notes explaining interface behaviour."],
+      "start": "Bring a brief, a screen list and references you like. Existing brand guidelines and copy can become part of the design.",
+      "note": "The number of concepts and revision rounds is agreed in the specification. Building the designs is a separate task unless included in the overall project."
+    }
+  },
+  {
+    "id": "seo",
+    "icon": "seo",
+    "ru": {
+      "title": "SEO",
+      "intro": "Структура, содержание и техническая подготовка сайта, чтобы поисковым системам было проще понимать его страницы.",
+      "includes": [
+        {"title": "Разбор текущего состояния", "text": "Изучаю страницы, навигацию, метаданные и доступность для индексации. Выделяю задачи и согласуем приоритеты."},
+        {"title": "Согласованные улучшения", "text": "Работаю над заголовками, описаниями, структурой контента и техническими настройками в пределах ТЗ."},
+        {"title": "Проверка и рекомендации", "text": "Проверяю выполненные изменения и готовлю список дальнейших действий. Подключение инструментов вебмастера включаем по договорённости."}
+      ],
+      "deliverables": ["Перечень найденных проблем и приоритетов.", "Согласованные изменения или рекомендации, если заказан аудит.", "Отчёт о выполненной работе и следующих шагах."],
+      "start": "Пришлите адрес сайта, описание услуг и целевой аудитории. Для внедрения изменений понадобятся доступы; существующая статистика поможет точнее оценить задачу.",
+      "note": "Результат услуги — согласованные работы и отчёт. Позиции, объём трафика и сроки индексации зависят в том числе от поисковых систем и не гарантируются."
+    },
+    "en": {
+      "title": "SEO",
+      "intro": "Website structure, content and technical preparation that help search engines understand its pages.",
+      "includes": [
+        {"title": "Review of the current website", "text": "I review pages, navigation, metadata and indexing accessibility. We identify tasks and agree on priorities."},
+        {"title": "Agreed improvements", "text": "I work on headings, descriptions, content structure and technical settings within the specification."},
+        {"title": "Checks and recommendations", "text": "I review the completed changes and outline next steps. Webmaster tools can be set up as part of the agreed scope."}
+      ],
+      "deliverables": ["A list of identified issues and priorities.", "Agreed changes, or recommendations when the scope is an audit.", "A report on completed work and next steps."],
+      "start": "Share the website address, services and target audience. Implementation requires access; existing analytics can help clarify the task.",
+      "note": "The deliverable is the agreed work and a report. Rankings, traffic and indexing timelines also depend on search engines and are not guaranteed."
+    }
+  },
+  {
+    "id": "social-design",
+    "icon": "social-design",
+    "ru": {
+      "title": "Дизайн для соцсетей",
+      "intro": "Оформление сообщества или профиля и графика для публикаций — чтобы соцсети выглядели цельно и узнаваемо.",
+      "includes": [
+        {"title": "Стиль и форматы", "text": "Обсуждаем аудиторию, площадки и задачи. Подбираю визуальное направление с учётом вашего фирменного стиля или создаю оформление с нуля."},
+        {"title": "Оформление и публикации", "text": "Создаю аватары, обложки, карточки постов, истории и рекламные макеты. Нужные форматы и количество материалов фиксируем в ТЗ."},
+        {"title": "Адаптация и шаблоны", "text": "Адаптирую согласованные макеты под выбранные площадки. Готовлю файлы для публикации и редактируемые шаблоны, если они входят в задачу."}
+      ],
+      "deliverables": ["Готовая графика в согласованных размерах и форматах.", "Исходные макеты и предусмотренные ТЗ шаблоны.", "Краткие рекомендации по использованию оформления."],
+      "start": "Пришлите ссылки на соцсети, список нужных материалов и примеры оформления. Понадобятся тексты, фотографии и логотип — если они уже есть.",
+      "note": "Количество макетов, адаптаций и вариантов согласуем заранее. Ведение соцсетей, написание текстов, съёмку и настройку рекламы не включаем автоматически в дизайн."
+    },
+    "en": {
+      "title": "Social media design",
+      "intro": "Profile and community visuals, plus graphics for posts, that give your social channels a consistent and recognisable look.",
+      "includes": [
+        {"title": "Style and formats", "text": "We discuss the audience, platforms and goals. I develop a visual direction using your existing brand identity or create a new look."},
+        {"title": "Profiles and posts", "text": "I design avatars, covers, post graphics, stories and ad creatives. The formats and number of assets are defined in the specification."},
+        {"title": "Adaptation and templates", "text": "I adapt the agreed designs to the selected platforms and prepare publishing files and editable templates where included in the scope."}
+      ],
+      "deliverables": ["Ready-to-publish graphics in the agreed sizes and formats.", "Source layouts and any templates included in the specification.", "Brief guidance on using the designs."],
+      "start": "Share your social links, the assets you need and visual references. Copy, photos and a logo are useful if you already have them.",
+      "note": "The number of designs, adaptations and concepts is agreed in advance. Social media management, copywriting, photography and ad campaign setup are not automatically included in design."
+    }
+  },
+  {
+    "id": "full-cycle",
+    "icon": "full-cycle",
+    "ru": {
+      "title": "Комплексная разработка",
+      "intro": "Несколько направлений в одном проекте: например, сайт с уникальным дизайном, веб-приложение для сотрудников и SEO. Собираем нужный вам пакет под общую задачу.",
+      "includes": [
+        {"title": "Единый план проекта", "text": "Разбираем задачи бизнеса и связь между частями проекта. Согласуем общее ТЗ: состав пакета, этапы, сроки, стоимость и критерии приёмки."},
+        {"title": "Дизайн и разработка", "text": "Создаю общий визуальный стиль, сайт и предусмотренные ТЗ модули приложения. Продумываю роли сотрудников, работу с данными и необходимые интеграции."},
+        {"title": "SEO и запуск", "text": "Выполняю согласованные работы по SEO, проверяю взаимодействие сайта и приложения и готовлю их к запуску. Передаю результаты и инструкции по каждому направлению."}
+      ],
+      "deliverables": ["Сайт, приложение, дизайн и SEO-работы в согласованном составе пакета.", "Исходный код, макеты и отчёт о выполненных работах.", "Инструкции по запуску и использованию, передача согласованных доступов."],
+      "start": "Опишите общую задачу, кто будет пользоваться сайтом и приложением, и какие процессы нужно связать. Если готового ТЗ нет, начнём с обсуждения состава проекта.",
+      "note": "Пакет формируется индивидуально: все функции и услуги перечисляем в ТЗ. Хостинг, лицензии, внешние сервисы и дальнейшее сопровождение согласуем отдельно; позиции в поиске не гарантируются."
+    },
+    "en": {
+      "title": "Full-cycle development",
+      "intro": "Several services in one project: for example, a custom-designed website, an internal web app for your team and SEO. We put together a package around your goals.",
+      "includes": [
+        {"title": "One project plan", "text": "We review the business goals and how the parts fit together. A shared specification defines the package, stages, deadlines, price and acceptance criteria."},
+        {"title": "Design and development", "text": "I create a consistent visual style, the website and the agreed app modules, including staff roles, data flows and necessary integrations."},
+        {"title": "SEO and launch", "text": "I complete the agreed SEO work, check how the website and app work together and prepare them for launch. Each part comes with its deliverables and instructions."}
+      ],
+      "deliverables": ["A website, app, design and SEO work within the agreed package.", "Source code, design files and a report on completed work.", "Launch and usage instructions, with the agreed access handed over."],
+      "start": "Describe the overall goal, who will use the website and app, and which processes need to connect. If you do not have a specification yet, we start by discussing the scope.",
+      "note": "Each package is tailored to the project, with all features and services listed in the specification. Hosting, licences, external services and ongoing support are agreed separately; search rankings are not guaranteed."
+    }
+  }
+]
