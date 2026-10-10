@@ -10,13 +10,16 @@
   /* The background edge and both button cuts share the same line. */
   .global-overlay { left: -100%; }
   .overlay {
-    left: calc(var(--rail-top-x, 130vw) - 200%);
+    left: 0;
     width: 200%;
     transform-origin: top right;
+    transform: translateX(calc(var(--rail-top-x, 130vw) - 100%)) skewX(0deg);
+    transition: transform var(--diagonal-duration) var(--ease), background var(--diagonal-duration) var(--ease);
     border-right-color: rgba(193, 217, 249, .38);
   }
-  .overlay.skew-part { transform: skewX(var(--diagonal-angle)); }
-  .is-panel-open .overlay { left: -100vw; }
+  /* Keep the original edge and motion on the compositor, without layout shifts. */
+  .overlay.skew-part { transform: translateX(calc(var(--rail-top-x, 130vw) - 100%)) skewX(var(--diagonal-angle)); }
+  .is-panel-open .overlay { left: 0; transform: translateX(-100vw) skewX(0deg); }
 
   .mobile-rail {
     display: block;
@@ -106,6 +109,10 @@
   }
   .site-footer { max-width: var(--rail-footer-width, 120px); }
   .site-footer .copyright { display: block; line-height: 1.5; }
+}
+
+@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
+  .overlay { transition: none; }
 }
 
 @media (max-width: 370px) {
