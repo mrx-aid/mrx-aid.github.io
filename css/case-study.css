@@ -70,6 +70,7 @@
 .case-artwork-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .case-artwork-grid:not(.case-artwork-brand) .case-image>button{aspect-ratio:3/2;background:#101713}
 .case-artwork-grid:not(.case-artwork-brand) .case-image img{width:100%;height:100%;object-fit:contain}
+.case-artwork-grid.case-screen-grid .case-image>button{aspect-ratio:16/9;background:#0c1929}
 .case-artwork-brand{grid-template-columns:minmax(0,2.5fr) minmax(0,1fr)}
 .case-context-gallery{display:grid;gap:28px}
 .case-motion{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);align-items:center;gap:34px;padding:26px;border:1px solid #81ade738;border-radius:12px;background:linear-gradient(130deg,#24456a26,#091725)}

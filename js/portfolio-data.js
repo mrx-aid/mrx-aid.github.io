@@ -8,6 +8,19 @@
     'atlas-before': [1920, 1080],
     'donkontur-desktop': [1920, 8974],
     'donkontur-projects': [1920, 6583],
+    'donkontur-home-hd': [1920, 1080],
+    'donkontur-services': [1920, 1080],
+    'donkontur-object': [1920, 1080],
+    'donkontur-request': [1920, 1080],
+    'donkontur-contacts': [1920, 1080],
+    'grinity-home': [1920, 1080],
+    'grinity-employers': [1920, 1080],
+    'grinity-cooperation': [1920, 1080],
+    'grinity-vacancies': [1920, 1080],
+    'kadr-home': [1920, 1080],
+    'kadr-services': [1920, 1080],
+    'kadr-vacancies': [1920, 1080],
+    'kadr-about': [1920, 1080],
     'axel-desktop': [1920, 1080],
     'axel-concept': [1920, 5819]
   };
@@ -81,18 +94,47 @@
         { title: 'A path to enquiry', text: 'A step-by-step form starts with the property type. Enquiry links, contacts and messengers appear at key points, with a dedicated mobile layout.' }
       ], detailImages: [1, 2], result: 'A live, multi-page website with services, a project portfolio, articles and an enquiry journey. I handled the complete design and development. The images show the published website.' }
   });
-  Object.assign(donkontur, { id: 'donkontur', budget: 35000, category: 'web', categories: ['web','design'], featured: true, url: 'https://donkontur.ru', image: 'img/cases/donkontur-desktop.jpg', width: 1265, height: 712,
+  donkontur.caseStudy.imageGroups = [{ title: 'Страницы и сценарии · Full HD', layout: 'screens', images: [3, 4, 5, 6] }];
+  donkontur.en.caseStudy.imageGroups = [{ title: 'Pages and journeys · Full HD', layout: 'screens', images: [3, 4, 5, 6] }];
+  donkontur.caseStudy.contextImages = { title: 'Главная страница целиком', images: [7] };
+  donkontur.en.caseStudy.contextImages = { title: 'The complete home page', images: [7] };
+  Object.assign(donkontur, { id: 'donkontur', budget: 35000, category: 'web', categories: ['web','design'], featured: true, url: 'https://donkontur.ru', image: 'img/cases/donkontur-home-hd.jpg', width: 1280, height: 720,
     gallery: [
-      shot('donkontur-desktop',1265,712,'Главная страница','Home page','Строительная тематика, крупный заголовок и два основных действия.','Construction imagery, expressive typography and two primary actions.'),
+      shot('donkontur-home-hd',1280,720,'Главная · Full HD','Home · Full HD','Крупная типографика, фон со стройкой и два основных действия.','Expressive typography, a construction backdrop and two primary actions.'),
       shot('donkontur-projects',1265,712,'Объекты и работы','Projects and work','Каталог с фотографиями объектов и фильтрацией по направлениям.','A photo-led project catalogue organised by category.'),
-      shot('donkontur-mobile',375,812,'На телефоне','On mobile','Тот же визуальный характер в вертикальной мобильной компоновке.','The same visual character in a vertical mobile layout.')
+      shot('donkontur-mobile',375,812,'На телефоне','On mobile','Тот же визуальный характер в вертикальной мобильной компоновке.','The same visual character in a vertical mobile layout.'),
+      shot('donkontur-services',1280,720,'Направления работы','Services','Каталог связывает каждую услугу с фотографией и переходом к подробностям.','Each service pairs a project photograph with a link to its details.'),
+      shot('donkontur-object',1280,720,'Страница отдельного объекта','Individual project','Фотографии занимают главное место в презентации строительного объекта.','Large photographs take centre stage in the project presentation.'),
+      shot('donkontur-request',1280,720,'Пошаговая заявка','Step-by-step enquiry','Первый из пяти шагов: выбор типа объекта и пояснения для начала разговора.','The first of five steps: choosing a property type, with guidance for the initial conversation.'),
+      shot('donkontur-contacts',1280,720,'Контакты компании','Company contacts','Крупные контактные данные, мессенджеры и фирменная информационная панель.','Prominent contact details, messenger links and a branded information panel.'),
+      shot('donkontur-desktop',1265,712,'Главная целиком','Complete home page','Полный снимок страницы: от первого экрана до подвала.','A full-page capture from the hero to the footer.')
     ] });
-  var grinity = copy({ title: 'Гринити Гарант', label: 'Сайт кадровой компании', status: 'Без снимков', description: 'Корпоративный сайт для кадровой компании: направления для работодателей и соискателей, вакансии, обучение и обращение в компанию.',
-    caseStudy: { role: 'Полный цикл: дизайн и разработка', state: 'Сервер временно отключён', tags: ['Корпоративный сайт','Дизайн','Разработка'], brief: 'Объединить на сайте информацию для двух аудиторий: компаний, которым нужен персонал, и людей, которые ищут работу.', decisions: [], result: 'Дизайн и разработка сайта выполнены целиком. Иллюстрации добавлю после восстановления доступа к серверу.' }
-  }, { title: 'Grinity Garant', label: 'Staffing company website', status: 'Screenshots pending', description: 'A corporate website for a staffing company: employer and job-seeker sections, vacancies, training and enquiries.',
-    caseStudy: { role: 'Full cycle: design & development', state: 'Server temporarily offline', tags: ['Corporate website','Design','Development'], brief: 'Bring together information for two audiences: companies looking for staff and people looking for work.', decisions: [], result: 'I handled the complete website design and development. Screenshots will be added once server access is restored.' }
+  var grinity = copy({ title: 'Гринити Гарант', label: 'Сайт кадровой компании', status: 'Дизайн и разработка', description: 'Корпоративный сайт кадровой компании: отдельные маршруты для работодателей и соискателей, каталог вакансий, модели сотрудничества и программы обучения.',
+    caseStudy: { role: 'Полный цикл: дизайн и разработка', state: 'Завершён · сайт работает', tags: ['Корпоративный сайт','Каталог вакансий','Две аудитории','Дизайн и разработка'],
+      brief: 'Объединить на сайте информацию для компаний, которым нужен персонал, и людей, которые ищут работу. Помочь каждой аудитории быстро найти свой раздел и перейти к обращению.',
+      decisions: [
+        { title: 'Узнаваемая подача', text: 'Тёмная палитра, яркие зелёные акценты и фотографии рабочих команд формируют характер сайта. Карточки, контурные иконки и нумерация объединяют разделы в одну систему.' },
+        { title: 'Два понятных маршрута', text: 'На первом экране разделены действия работодателя и соискателя. Компаниям доступны кадровые решения и сравнение аутстаффинга с аутсорсингом, кандидатам — каталог и подробные страницы вакансий.' },
+        { title: 'Содержание и связь', text: 'Программы обучения, отзывы и партнёры дополняют представление компании. Форма обращения меняет поля в зависимости от выбранной аудитории; прямые контакты остаются рядом.' }
+      ], imageGroups: [{ title: 'Разделы сайта · Full HD', layout: 'screens', images: [1, 2, 3] }],
+      result: 'Работающий многостраничный сайт с вакансиями, информацией для работодателей, обучением и формой обращения. Дизайн и разработка выполнены целиком. В кейсе показаны реальные экраны опубликованного сайта.' }
+  }, { title: 'Grinity Garant', label: 'Staffing company website', status: 'Design & development', description: 'A corporate staffing website with separate journeys for employers and job seekers, a vacancy catalogue, cooperation models and training programmes.',
+    caseStudy: { role: 'Full cycle: design & development', state: 'Completed · live website', tags: ['Corporate website','Vacancy catalogue','Two audiences','Design & development'],
+      brief: 'Bring together information for companies looking for staff and people looking for work. Help each audience find the relevant section and start an enquiry.',
+      decisions: [
+        { title: 'A recognisable identity', text: 'A dark palette, vivid green accents and team photography establish the visual character. Cards, outline icons and numbering tie the sections together.' },
+        { title: 'Two clear journeys', text: 'The hero separates employer and job-seeker actions. Companies can explore staffing services and compare cooperation models, while candidates can browse vacancies and their detail pages.' },
+        { title: 'Content and contact', text: 'Training programmes, reviews and partners complete the company presentation. The enquiry form adapts its fields to the selected audience, with direct contact options nearby.' }
+      ], imageGroups: [{ title: 'Website sections · Full HD', layout: 'screens', images: [1, 2, 3] }],
+      result: 'A live, multi-page website covering vacancies, employer information, training and enquiries. I handled the complete design and development. The case features real captures of the published website.' }
   });
-  Object.assign(grinity, { id: 'grinity', budget: 70000, category: 'web', categories: ['web','design'], offline: true, url: 'http://grinity-garant.ru', domain: 'grinity-garant.ru' });
+  Object.assign(grinity, { id: 'grinity', budget: 70000, category: 'web', categories: ['web','design'], url: 'https://grinity-garant.ru', domain: 'grinity-garant.ru', image: 'img/cases/grinity-home.jpg', width: 1280, height: 720,
+    gallery: [
+      shot('grinity-home',1280,720,'Главная страница','Home page','Первый экран с отдельными действиями для работодателя и соискателя.','A hero with separate actions for employers and job seekers.'),
+      shot('grinity-employers',1280,720,'Для работодателей','For employers','Три карточки кадровых решений с иконками и краткими преимуществами.','Three staffing solution cards with icons and concise benefits.'),
+      shot('grinity-cooperation',1280,720,'Модели сотрудничества','Cooperation models','Сравнение аутстаффинга и аутсорсинга в двух колонках.','A side-by-side comparison of staffing and outsourcing models.'),
+      shot('grinity-vacancies',1280,720,'Каталог вакансий','Vacancy catalogue','Фотографии, названия профессий и условия в карточках вакансий.','Photographs, job titles and terms presented as vacancy cards.')
+    ] });
   var grinityVk = copy({
     title: 'Grinity · ВКонтакте', label: 'Оформление сообщества', status: 'Дизайн соцсетей',
     description: 'Дизайн группы ВКонтакте в едином стиле с сайтом «Гринити Гарант». Оформление для компьютера и мобильное представление с анимацией.',
@@ -152,12 +194,83 @@
       grinityArtwork('profile',1287,737,'Профиль компании','Company profile','Тот же визуальный стиль в оформлении профиля.','The same visual style applied to the company profile.')
     ]
   });
-  var kadr = copy({ title: 'Кадр Проф', label: 'Корпоративный сайт', status: 'Без снимков', description: 'Сайт «Кадр Проф». Полный цикл работы над проектом: визуальный дизайн и разработка.',
-    caseStudy: { role: 'Полный цикл: дизайн и разработка', state: 'Сервер временно отключён', tags: ['Сайт компании','Дизайн','Разработка'], brief: 'Создать сайт компании, объединив визуальное оформление и техническую реализацию в одном проекте.', decisions: [], result: 'Проект добавлен в подборку выполненных работ. Подробный визуальный разбор появится вместе со снимками после восстановления доступа к сайту.' }
-  }, { title: 'Kadr Prof', label: 'Corporate website', status: 'Screenshots pending', description: 'The Kadr Prof website. Full-cycle work covering visual design and development.',
-    caseStudy: { role: 'Full cycle: design & development', state: 'Server temporarily offline', tags: ['Company website','Design','Development'], brief: 'Create a company website, bringing its visual design and technical implementation together in one project.', decisions: [], result: 'The project is included in this selection of completed work. A detailed visual story will follow once the site is accessible again.' }
+  var kadr = copy({ title: 'Кадр Проф', label: 'Сайт компании по подбору персонала', status: 'Дизайн и разработка', description: 'Сайт кадровой компании для предприятий: точечный и массовый подбор, аутсорсинг персонала, вакансии и полезные материалы о найме.',
+    caseStudy: { role: 'Полный цикл: дизайн и разработка', state: 'Завершён · сайт работает', tags: ['Корпоративный сайт','Каталог услуг','Вакансии и статьи','Дизайн и разработка'],
+      brief: 'Представить кадровые услуги для производственных, строительных и логистических компаний. Сделать понятным путь от выбора формата подбора до запроса предложения, сохранив отдельный раздел для соискателей.',
+      decisions: [
+        { title: 'Деловой визуальный язык', text: 'Сине-графитовая палитра, крупные заголовки и отраслевые фотографии связывают сайт с реальным сектором. Светлые блоки внутренних страниц отделяют содержание от насыщенной шапки.' },
+        { title: 'Услуги по задачам', text: 'Карточки разделяют точечный поиск, массовый подбор, комплектование смен и сопровождение выхода. У каждого направления есть отдельная страница с подробностями.' },
+        { title: 'Несколько точек входа', text: 'Работодатель может изучить услуги, подход компании и запросить предложение. Для соискателей предусмотрены вакансии, а статьи и ответы на частые вопросы помогают разобраться до обращения.' }
+      ], imageGroups: [{ title: 'Разделы сайта · Full HD', layout: 'screens', images: [1, 2, 3] }],
+      result: 'Работающий многостраничный сайт с каталогом кадровых услуг, вакансиями, материалами о подборе и формами обращения. Весь дизайн и разработка выполнены мной; иллюстрации показывают опубликованный проект.' }
+  }, { title: 'Kadr Prof', label: 'Recruitment company website', status: 'Design & development', description: 'A recruitment website for businesses, covering specialist and mass recruitment, staffing services, vacancies and practical hiring articles.',
+    caseStudy: { role: 'Full cycle: design & development', state: 'Completed · live website', tags: ['Corporate website','Service catalogue','Vacancies & articles','Design & development'],
+      brief: 'Present recruitment services for manufacturing, construction and logistics companies. Create a clear route from choosing a recruitment model to requesting a proposal, with a separate area for job seekers.',
+      decisions: [
+        { title: 'A business-oriented identity', text: 'A blue and graphite palette, large headings and industry photography connect the site to its audience. Light inner-page sections separate content from the dark header.' },
+        { title: 'Services organised by need', text: 'Cards distinguish specialist search, mass recruitment, shift staffing and onboarding support. Each service has a dedicated detail page.' },
+        { title: 'Multiple entry points', text: 'Employers can explore services and the company approach before requesting a proposal. Job seekers have a vacancy section, while articles and FAQs offer practical guidance before an enquiry.' }
+      ], imageGroups: [{ title: 'Website sections · Full HD', layout: 'screens', images: [1, 2, 3] }],
+      result: 'A live, multi-page website with recruitment services, vacancies, hiring articles and enquiry forms. I handled all design and development; the images show the published project.' }
   });
-  Object.assign(kadr, { id: 'kadr-prof', budget: 55000, category: 'web', categories: ['web','design'], offline: true, url: 'https://kadr-prof.ru', domain: 'kadr-prof.ru' });
+  Object.assign(kadr, { id: 'kadr-prof', budget: 55000, category: 'web', categories: ['web','design'], url: 'https://kadr-prof.ru', domain: 'kadr-prof.ru', image: 'img/cases/kadr-home.jpg', width: 1280, height: 720,
+    gallery: [
+      shot('kadr-home',1280,720,'Главная страница','Home page','Первый экран с отраслевой фотографией и акцентом на кадровую задачу.','An industry-led hero focused on the recruitment brief.'),
+      shot('kadr-services',1280,720,'Карточки услуг','Service cards','Единая сетка направлений: иконка, описание, фотография и ссылка.','A consistent service grid with icons, descriptions, photographs and links.'),
+      shot('kadr-vacancies',1280,720,'Раздел для соискателей','Job-seeker section','Вакансии и пояснения к условиям обращения собраны на отдельной странице.','Vacancies and guidance for applicants share a dedicated page.'),
+      shot('kadr-about',1280,720,'О компании','About the company','Отдельная страница раскрывает специализацию и подход к подбору.','A dedicated page explains the company’s focus and recruitment approach.')
+    ] });
+  // Extended case galleries, captured from the working sites on 10 October 2026.
+  function hdShot(file, ru, en, ruCaption, enCaption) {
+    fullShots[file] = [1920, 1080];
+    return shot(file, 1280, 720, ru, en, ruCaption, enCaption);
+  }
+  function screenGroup(project, title, enTitle, images) {
+    [project.caseStudy, project.en.caseStudy].forEach(function (study, index) {
+      study.imageGroups = study.imageGroups || [];
+      study.imageGroups.push({ title: index ? enTitle : title, layout: 'screens', images: images });
+    });
+  }
+  portfolio.image = 'img/cases/portfolio-home-current.jpg';
+  portfolio.gallery[0] = hdShot('portfolio-home-current','После · главная портфолио','After · portfolio home','Актуальный первый экран: оригинальный знак ATLAS, диагональ и фирменный синий акцент.','The current hero with the original ATLAS mark, diagonal and signature blue accent.');
+  portfolio.gallery[2] = hdShot('portfolio-about-current','Обо мне · услуги','About · services','Шесть направлений работы в стеклянных карточках с иконками.','Six service areas presented as glass cards with icons.');
+  portfolio.gallery.push(
+    hdShot('portfolio-work-current','Раздел «Работы»','Selected work','Карточки связывают превью, название и бюджет проекта в единый элемент.','Cards combine project previews, titles and budgets.'),
+    hdShot('portfolio-personal-current','Личные проекты','Personal projects','Отдельное пространство для AXEL и архивных проектов.','A dedicated section for AXEL and archived projects.'),
+    hdShot('portfolio-service-current','Подробности услуги','Service details','Модальное окно раскрывает состав работ, результат и требования для старта.','A dialog explains the scope, deliverables and information needed to start.'),
+    hdShot('portfolio-terms-current','Условия и авторская подпись','Terms and author credit','Раскрываемый блок условий с примером подписи и плитками договоров.','Expandable working terms with a sample author credit and contract tiles.'),
+    hdShot('portfolio-contract-current','Просмотр договора','Contract preview','Текст документа можно прочитать в модалке и скачать в PDF или Word.','A document can be read in a dialog and downloaded as PDF or Word.'),
+    hdShot('portfolio-contacts-current','Окно связи','Contact dialog','Логотип и три прямых способа обсудить проект.','The brand mark and three direct ways to discuss a project.')
+  );
+  screenGroup(portfolio,'Разделы и раскрытые окна · Full HD','Sections and dialogs · Full HD',[4,5,6,7,8,9]);
+  donkontur.gallery.push(
+    hdShot('donkontur-about','О компании','About the company','Презентация подхода компании и ключевой информации о работе.','A presentation of the company approach and key working information.'),
+    hdShot('donkontur-article','Статья о проектировании','Design and planning article','Редакционная страница: крупный заголовок, иллюстрация и читаемый текст.','An editorial page with a prominent title, illustration and readable text.')
+  );
+  screenGroup(donkontur,'Компания и публикации','Company and editorial content',[8,9]);
+  grinity.gallery.push(
+    hdShot('grinity-education','Программы обучения','Training programmes','Карточки направлений обучения в общей визуальной системе сайта.','Training programme cards follow the site’s visual system.'),
+    hdShot('grinity-about','О компании','About the company','Информация о компании с фирменной типографикой и зелёными акцентами.','Company information with signature typography and green accents.'),
+    hdShot('grinity-vacancy-detail','Подробности вакансии','Vacancy details','Страница дорожного рабочего: содержание вакансии и переход к отклику.','The road worker vacancy page presents job details and an application action.'),
+    hdShot('grinity-education-detail','Страница программы','Programme details','Подробная презентация программы обучения на примере фотографии.','A detailed training programme page, illustrated by the photography course.'),
+    hdShot('grinity-enquiry','Форма обращения','Enquiry form','Форма и контактная информация в нижней части главной страницы.','An enquiry form and contact information at the bottom of the home page.'),
+    hdShot('grinity-reviews','Отзывы','Reviews','Отдельная страница отзывов в едином стиле с остальными разделами.','A dedicated reviews page shares the visual identity of the other sections.')
+  );
+  screenGroup(grinity,'Обучение, компания и обращения','Training, company and enquiries',[4,5,6,7,8,9]);
+  kadr.gallery.push(
+    hdShot('kadr-process','Как мы работаем','How we work','Четыре этапа подбора раскрываются в отдельном окне.','Four recruitment stages presented in a dedicated dialog.'),
+    hdShot('kadr-service-detail','Страница услуги','Service details','Подробности точечного подбора: структура услуги и путь к обращению.','Specialist recruitment details explain the service and lead to an enquiry.'),
+    hdShot('kadr-contacts','Контакты','Contacts','Контактная страница с ясной иерархией информации.','A contact page with a clear information hierarchy.'),
+    hdShot('kadr-blog','Статьи о подборе','Recruitment articles','Каталог публикаций с иллюстрациями и краткими анонсами.','An article catalogue with illustrations and short introductions.'),
+    hdShot('kadr-article','Как подготовить заявку','Preparing a recruitment brief','Пример длинной публикации с крупным заголовком и удобной компоновкой.','A long-form article with a prominent heading and readable layout.'),
+    hdShot('kadr-vacancy-detail','Карточка вакансии','Vacancy details','Подробная страница вакансии электромонтажника.','The electrical installer vacancy detail page.')
+  );
+  screenGroup(kadr,'Сценарии, услуги и публикации','Journeys, services and articles',[4,5,6,7,8,9]);
+  grinityVk.gallery.push(
+    hdShot('grinity-vk-overview','Комплект оформления · композиция','Visual identity · presentation board','Презентационная композиция из оригинальной обложки, аватарки и четырёх плиток меню.','A presentation board assembled from the original cover, avatar and four navigation tiles.'),
+    hdShot('grinity-vk-motion-frames','Мобильная анимация · кадры','Mobile animation · frames','Два кадра из предоставленной записи на холсте Full HD. Кадры показаны без увеличения; полная анимация — в видео ниже.','Two frames from the supplied recording on a Full HD canvas, shown without upscaling. The complete animation is in the video below.')
+  );
+  screenGroup(grinityVk,'Общий вид и мобильная версия','Overview and mobile presentation',[8,9]);
   var axel = copy({ title: 'AXEL Platform', label: 'Личный продукт · бизнес-инструменты', status: 'Alpha · в разработке',
     description: 'Мой долгосрочный личный проект: платформа для семейства самостоятельных бизнес-продуктов. Первый — Axiom ERP для производственных и подрядных компаний.',
     caseStudy: { role: 'Автор личного проекта', state: 'AXEL и Axiom ERP · Alpha', concept: true, tags: ['Продуктовая концепция','Платформа','Axiom ERP','В активной разработке'],
