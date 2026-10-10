@@ -5,6 +5,8 @@
   "description": "Local ATLAS-based portfolio preview for Alexandr Azimov",
   "scripts": {
     "build": "node tools/build-site.mjs",
+    "verify": "node tools/build-site.mjs && node tools/verify-site.mjs",
+    "preview": "node tools/start-preview.mjs",
     "prepare:pages": "node tools/build-site.mjs && node tools/prepare-pages.mjs",
     "start": "node tools/build-site.mjs && node server.mjs"
   }

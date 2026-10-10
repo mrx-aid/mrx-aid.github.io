@@ -2,5 +2,9 @@
   "origin": "https://mrx-aid.github.io",
   "defaultLanguage": "ru",
   "languages": { "ru": "/", "en": "/en/" },
-  "name": "Alexandr Azimov"
+  "name": "Alexandr Azimov",
+  "verification": {
+    "google-site-verification": "nrJRfHmUGRS8Ijqie2lRfNH1jlYG82T0n8UF9POmE6Q",
+    "yandex-verification": "d405830263143c78"
+  }
 }

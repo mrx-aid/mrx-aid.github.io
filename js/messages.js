@@ -409,6 +409,8 @@ window.PORTFOLIO_MESSAGES = {
     "Нужно сделать сайт или заказать разработку веб-приложения? Помогу продумать структуру, интерфейс и реализацию под вашу задачу.",
     "Need a website or a custom web app? I can help plan its structure, interface and implementation around your needs."
   ],
+  "projectPage": ["Страница проекта ↗", "Project page ↗"],
+  "servicePage": ["Страница услуги ↗", "Service page ↗"],
   "serviceAudience": [
     "Работаю удалённо с русскоязычными клиентами из России и других стран.",
     "I work remotely with Russian-speaking clients in Russia and other countries."

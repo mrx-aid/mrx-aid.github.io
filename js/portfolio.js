@@ -6,6 +6,9 @@
   var i18n = window.PortfolioI18n;
   var t = i18n.t;
   function projectText(project, field) { return i18n.getLanguage() === 'en' && project.en ? project.en[field] : project[field]; }
+  function contentPath(section, id) { return (i18n.getLanguage() === 'en' ? '/en/' : '/') + section + '/' + (id ? id + '/' : ''); }
+  function projectPath(project) { return contentPath(data.projects.indexOf(project) === -1 ? 'personal' : 'work', project.id); }
+  function normalClick(event) { return event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey; }
   var body = document.body;
   var shell = document.getElementById('site-shell');
   var panel = document.getElementById('right-side');
@@ -146,13 +149,16 @@
 
   var serviceDetails = Array.from(document.querySelectorAll('[data-service-content]'));
   document.querySelectorAll('[data-service]').forEach(function (button, index) {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (event) {
+      if (!normalClick(event)) return;
+      event.preventDefault();
       var current = serviceDetails.find(function (section) { return section.dataset.serviceContent === button.dataset.service; });
       if (!current) return;
       serviceDetails.forEach(function (section) { section.hidden = section !== current; });
       document.getElementById('service-dialog-title').textContent = current.dataset.serviceTitle;
       document.getElementById('service-dialog-icon').setAttribute('href', '#i-' + current.dataset.serviceIcon);
       document.getElementById('service-dialog-number').textContent = String(index + 1).padStart(2, '0');
+      document.getElementById('service-page-link').href = contentPath('services', button.dataset.service);
       document.getElementById('service-dialog-scroll').scrollTop = 0;
       openDialog(serviceDialog, button);
     });
@@ -239,10 +245,10 @@
     filteredProjects = data.projects.filter(function (project) { return filter === 'all' || (project.categories || [project.category]).includes(filter); });
     grid.innerHTML = filteredProjects.map(function (project) {
       return '<figure class="project-card real-project' + (project.featured ? ' featured-project' : '') + '" data-project="' + escapeText(project.id) + '">' +
-        '<button type="button" class="project-cover project-open' + (!project.image ? ' project-cover-empty' : '') + '" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' +
+        '<a href="' + projectPath(project) + '" class="project-cover project-open' + (!project.image ? ' project-cover-empty' : '') + '" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' +
         (project.image ? '<img src="' + escapeText(project.image) + '" width="' + project.width + '" height="' + project.height + '" alt="' + escapeText(projectText(project, 'title') + t('screenshotSuffix')) + '" loading="lazy">' : icon(project.placeholderIcon || 'website') + '<span class="project-domain">' + escapeText(project.domain) + '</span><span class="project-image-note">' + t('screenshotsLater') + '</span>') +
-        '<span class="cover-label">' + escapeText(projectText(project, 'status')) + '</span><span class="cover-expand">' + icon('arrow') + '</span></button>' +
-        '<figcaption class="project-caption"><button class="project-detail-button" type="button" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' + escapeText(projectText(project, 'title')) + icon('arrow') + '</button><p>' + escapeText(projectText(project, 'label')) + '</p>' + projectBudget(project) + '</figcaption></figure>';
+        '<span class="cover-label">' + escapeText(projectText(project, 'status')) + '</span><span class="cover-expand">' + icon('arrow') + '</span></a>' +
+        '<figcaption class="project-caption"><a class="project-detail-button" href="' + projectPath(project) + '" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' + escapeText(projectText(project, 'title')) + icon('arrow') + '</a><p>' + escapeText(projectText(project, 'label')) + '</p>' + projectBudget(project) + '</figcaption></figure>';
     }).join('');
     document.getElementById('filter-status').textContent = t('count') + filteredProjects.length;
   }
@@ -260,6 +266,7 @@
     document.getElementById('project-title').textContent = projectText(project, 'title');
     document.getElementById('project-category').textContent = projectText(project, 'label');
     document.getElementById('project-description').textContent = projectText(project, 'description');
+    document.getElementById('project-page-link').href = projectPath(project);
     var budget = document.getElementById('project-budget');
     var hasBudget = Number.isFinite(project.budget) && project.budget >= 0;
     var budgetNote = projectText(project, 'budgetNote');
@@ -326,11 +333,12 @@
     gallery.init();
   }
   grid.addEventListener('click', function (event) {
+    if (!normalClick(event)) return;
     var figure = event.target.closest('[data-project]');
     if (!figure) return;
     var project = data.projects.find(function (item) { return item.id === figure.dataset.project; });
     var trigger = event.target.closest('.project-open, .project-detail-button');
-    if (trigger) showProject(project, trigger);
+    if (trigger) { event.preventDefault(); showProject(project, trigger); }
   });
   function enlargeCase(index, trigger) {
     var project = selectedProject;
