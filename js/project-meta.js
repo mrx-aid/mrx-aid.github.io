@@ -1,6 +1,6 @@
 /* Shared by the browser and static page generator. No invented language percentages. */
 (function () {
-  var colors = { HTML: 'html', CSS: 'css', JavaScript: 'javascript', Makefile: 'makefile' };
+  var colors = { HTML: 'html', CSS: 'css', JavaScript: 'javascript', Makefile: 'makefile', Lua: 'lua', Shell: 'shell' };
   function escape(value) { return String(value).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
   function languages(project, language) {
     var ru = language !== 'en', info = project.languageInfo || { state: 'pending', items: [] };

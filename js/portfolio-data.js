@@ -319,21 +319,21 @@
   }
   var axelMesh = openwrtProject('axel-mesh', 'AXEL Mesh', 'Theme', {
     description: 'Собственная тема для панели LuCI в OpenWrt. Работа над визуальной системой и удобным представлением состояния домашней сети.',
-    stage: 'В разработке · доработка прототипа', brief: 'Сделать повседневное управление роутером понятнее: читаемые показатели, аккуратные формы и единая подача системных разделов.',
-    result: 'Подготовлен первый HTML-прототип. Визуальное направление дорабатывается; установочный пакет и проверка в настоящем LuCI ещё впереди.'
+    stage: 'В разработке · пакеты LuCI', brief: 'Сделать повседневное управление роутером понятнее: читаемые показатели, аккуратные формы и единая подача системных разделов.',
+    result: 'Реализованы пакеты темы и общего ядра LuCI, боковая навигация, Light/Dark и адаптивные формы. Настроена сборка APK на официальном SDK OpenWrt. Проверка установленной темы на роутере ещё предстоит.'
   }, {
     description: 'A custom theme for the OpenWrt LuCI interface, exploring a visual system and a clear presentation of home-network status.',
-    stage: 'In development · prototype refinement', brief: 'Make everyday router management clearer through readable metrics, considered forms and consistent system pages.',
-    result: 'An initial HTML prototype is available. The visual direction is being refined; an installable package and real LuCI testing are still ahead.'
+    stage: 'In development · LuCI packages', brief: 'Make everyday router management clearer through readable metrics, considered forms and consistent system pages.',
+    result: 'Native theme and shared LuCI packages now implement sidebar navigation, Light/Dark and responsive forms. APK builds use the official OpenWrt SDK. Installed-theme testing on a router is still pending.'
   }, { state: 'verified', items: ['HTML', 'CSS', 'JavaScript'] });
   var atlasTheme = openwrtProject('atlas-openwrt', 'ATLAS', 'Theme', {
     description: 'Тема OpenWrt на основе визуального наследия моей киберспортивной платформы ATLAS: чёрный, белый, синий акцент и оригинальная символика.',
-    stage: 'В разработке · интерактивный прототип', brief: 'Перенести узнаваемый характер ATLAS в интерфейс роутера, сохранив удобство на узких экранах и в светлом и тёмном режимах.',
-    result: 'В прототипе работают Light/Dark, адаптивная компоновка, верхняя бегущая строка и меню профиля с оригинальной заглушкой аватара. Интеграция с LuCI ещё не завершена.'
+    stage: 'В разработке · пакеты LuCI', brief: 'Перенести узнаваемый характер ATLAS в интерфейс роутера, сохранив удобство на узких экранах и в светлом и тёмном режимах.',
+    result: 'В исходниках темы LuCI реализованы Light/Dark, адаптивная компоновка, верхняя бегущая строка и меню профиля с оригинальной заглушкой аватара. Подготовлена сборка APK; аппаратные испытания ещё не завершены.'
   }, {
     description: 'An OpenWrt theme inspired by my earlier ATLAS esports platform: black, white, a blue accent and the original brand assets.',
-    stage: 'In development · interactive prototype', brief: 'Bring the recognisable ATLAS identity into a router interface while keeping narrow screens and light/dark modes usable.',
-    result: 'The prototype includes Light/Dark, responsive layouts, a top ticker and a profile menu with the original avatar placeholder. LuCI integration is not yet complete.'
+    stage: 'In development · LuCI packages', brief: 'Bring the recognisable ATLAS identity into a router interface while keeping narrow screens and light/dark modes usable.',
+    result: 'The native LuCI theme sources include Light/Dark, responsive layouts, a top ticker and a profile menu with the original avatar placeholder. APK builds are prepared; hardware verification is not complete.'
   }, { state: 'verified', items: ['HTML', 'CSS', 'JavaScript'] });
   var mrxTheme = openwrtProject('mrx-openwrt', 'MRx', 'Theme', {
     description: 'Отдельная авторская тема OpenWrt. Её визуальный характер будет проработан самостоятельно, а не сведён к смене цвета другой темы.',
@@ -346,13 +346,13 @@
   }, { state: 'planned', items: ['HTML', 'CSS', 'JavaScript'] });
   var vpnTunneling = openwrtProject('vpn-tunneling', 'VPN-Tunneling', 'Module', {
     description: 'Модуль LuCI для управления VPN-профилями. WireGuard, AmneziaWG, VLESS и Hysteria 2 — первые направления разработки, TrustTunnel запланирован отдельно.',
-    stage: 'В разработке · импорт черновиков', brief: 'Объединить разные VPN-профили в понятном интерфейсе: ручная настройка, импорт файлов и ссылок, диагностика и управляемое применение сетевых изменений.',
-    result: 'Реализована основа пакета и структурный разбор черновиков с автоматическими тестами. Сохранение на роутер, реальные подключения и маршрутизация ещё не реализованы. Исходный код хранится в закрытом репозитории.'
+    stage: 'В разработке · серверная часть WireGuard', brief: 'Объединить разные VPN-профили в понятном интерфейсе: ручная настройка, импорт файлов и ссылок, диагностика и управляемое применение сетевых изменений.',
+    result: 'Реализованы серверная проверка и хранение WireGuard-профилей, управление ими и ограниченная диагностика handshake с автоостановкой. Код покрыт автоматическими тестами и собирается в APK. Проверка на роутере ещё предстоит; полноценная маршрутизация и остальные движки пока не реализованы. Исходный код закрыт.'
   }, {
     description: 'A LuCI module for VPN profile management. WireGuard, AmneziaWG, VLESS and Hysteria 2 are the initial development targets, with TrustTunnel planned separately.',
-    stage: 'In development · draft imports', brief: 'Bring VPN profiles into a clear interface with manual configuration, file and URI imports, diagnostics and controlled network changes.',
-    result: 'The package foundation and structural draft parsers are implemented with automated tests. Router persistence, live connections and routing are not implemented yet. Source code is kept private.'
-  }, { state: 'verified', items: ['JavaScript', 'Makefile'] }, true);
+    stage: 'In development · WireGuard backend', brief: 'Bring VPN profiles into a clear interface with manual configuration, file and URI imports, diagnostics and controlled network changes.',
+    result: 'Server-side WireGuard validation, profile storage and management, and time-limited handshake diagnostics with automatic cleanup are implemented. Automated tests and APK builds are available. Router testing is pending; full traffic routing and other engines are not implemented yet. Source code remains private.'
+  }, { state: 'verified', items: ['JavaScript', 'Lua', 'Shell', 'Makefile'] }, true);
   window.PORTFOLIO = {
     contacts: { telegram: 'https://t.me/mrx_adm', vk: 'https://vk.ru/escl.nesss', email: 'alex.azimov@icloud.com' },
     projects: [portfolio, donkontur, grinityVk, grinity, kadr],

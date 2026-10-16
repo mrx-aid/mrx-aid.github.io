@@ -4,6 +4,7 @@
 .language-tag{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
 .language-dot{width:10px;height:10px;border-radius:50%;flex:none;background:#8b949e;box-shadow:0 0 0 1px #ffffff18}
 .lang-html{background:#e34c26}.lang-css{background:#663399}.lang-javascript{background:#f1e05a}.lang-makefile{background:#427819}
+.lang-lua{background:#000080;box-shadow:0 0 0 1px #98a6c8}.lang-shell{background:#89e051}
 .development-state,.private-source{display:inline-flex;align-items:center;gap:7px;font-size:11px;line-height:1.4;padding:6px 9px;margin:8px 8px 0 0;border:1px solid #8db8e445;border-radius:6px;color:#b8d7fa;background:#173453}
 .development-state:before{content:"";width:6px;height:6px;border-radius:50%;background:#e8b75a}
 .private-source{background:transparent;color:#b4c5d8}
