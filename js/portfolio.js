@@ -231,6 +231,9 @@
   function formatBudget(amount) {
     return new Intl.NumberFormat(i18n.getLanguage() === 'en' ? 'en-GB' : 'ru-RU', { maximumFractionDigits: 0 }).format(amount) + '\u00a0₽';
   }
+  function projectLanguages(project) { return window.PROJECT_META.languages(project, i18n.getLanguage()); }
+  function projectStatus(project) { return window.PROJECT_META.status(project, i18n.getLanguage()); }
+  function projectPlaceholder(project) { return '<strong>' + escapeText(project.brand || projectText(project, 'title')) + '</strong><small>OPENWRT ' + escapeText(project.kind || '') + '</small>'; }
   function projectBudget(project) {
     if (Number.isFinite(project.budget) && project.budget >= 0) {
       return '<div class="project-budget"><span class="project-budget-label">' + escapeText(t('caseBudget')) + '</span><strong>' + escapeText(formatBudget(project.budget)) + '</strong></div>';
@@ -248,7 +251,7 @@
         '<a href="' + projectPath(project) + '" class="project-cover project-open' + (!project.image ? ' project-cover-empty' : '') + '" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' +
         (project.image ? '<img src="' + escapeText(project.image) + '" width="' + project.width + '" height="' + project.height + '" alt="' + escapeText(projectText(project, 'title') + t('screenshotSuffix')) + '" loading="lazy">' : icon(project.placeholderIcon || 'website') + '<span class="project-domain">' + escapeText(project.domain) + '</span><span class="project-image-note">' + t('screenshotsLater') + '</span>') +
         '<span class="cover-label">' + escapeText(projectText(project, 'status')) + '</span><span class="cover-expand">' + icon('arrow') + '</span></a>' +
-        '<figcaption class="project-caption"><a class="project-detail-button" href="' + projectPath(project) + '" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' + escapeText(projectText(project, 'title')) + icon('arrow') + '</a><p>' + escapeText(projectText(project, 'label')) + '</p>' + projectBudget(project) + '</figcaption></figure>';
+        '<figcaption class="project-caption"><a class="project-detail-button" href="' + projectPath(project) + '" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '">' + escapeText(projectText(project, 'title')) + icon('arrow') + '</a><p>' + escapeText(projectText(project, 'label')) + '</p>' + projectLanguages(project) + projectBudget(project) + '</figcaption></figure>';
     }).join('');
     document.getElementById('filter-status').textContent = t('count') + filteredProjects.length;
   }
@@ -303,7 +306,7 @@
   }
   function renderCase(project, study) {
     if (!study) return '';
-    var html = '<dl class="case-facts"><div><dt>' + t('caseRole') + '</dt><dd>' + escapeText(study.role) + '</dd></div><div><dt>' + t('caseState') + '</dt><dd>' + escapeText(study.state) + '</dd></div></dl>' +
+    var html = projectStatus(project) + projectLanguages(project) + '<dl class="case-facts"><div><dt>' + t('caseRole') + '</dt><dd>' + escapeText(study.role) + '</dd></div><div><dt>' + t('caseState') + '</dt><dd>' + escapeText(study.state) + '</dd></div></dl>' +
       '<ul class="case-tags" aria-label="' + t('caseFeatures') + '">' + study.tags.map(function (tag) { return '<li>' + escapeText(tag) + '</li>'; }).join('') + '</ul>' +
       '<section class="case-section"><h3>' + t(study.concept ? 'caseConcept' : 'caseBrief') + '</h3><p>' + escapeText(study.brief) + '</p></section>';
     if (study.comparison) html += '<section class="case-section"><h3>' + t('caseBeforeAfter') + '</h3><div class="case-comparison">' + study.comparison.map(function (index) { return caseImage(project, index); }).join('') + '</div></section>';
@@ -367,7 +370,7 @@
 
   function renderPersonalProjects() {
   document.getElementById('personal-projects').innerHTML = data.personalProjects.map(function (project, index) {
-    if (project.caseStudy) return '<article class="personal-case" data-personal="' + escapeText(project.id) + '"><button type="button" class="personal-case-open" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '"><span class="personal-case-image"><img src="' + escapeText(project.image) + '" width="' + project.width + '" height="' + project.height + '" alt="' + escapeText(projectText(project, 'title') + t('screenshotSuffix')) + '" loading="lazy"><span class="cover-label">' + escapeText(projectText(project, 'status')) + '</span></span><span class="personal-case-copy"><span class="personal-case-title">' + escapeText(projectText(project, 'title')) + icon('arrow') + '</span><span class="personal-case-description">' + escapeText(projectText(project, 'description')) + '</span><span class="personal-case-link">' + t('readConcept') + '</span></span></button></article>';
+    if (project.caseStudy) return '<article class="personal-case" data-personal="' + escapeText(project.id) + '"><button type="button" class="personal-case-open" aria-label="' + escapeText(t('details') + projectText(project, 'title')) + '"><span class="personal-case-image' + (!project.image ? ' project-placeholder' : '') + '">' + (project.image ? '<img src="' + escapeText(project.image) + '" width="' + project.width + '" height="' + project.height + '" alt="' + escapeText(projectText(project, 'title') + t('screenshotSuffix')) + '" loading="lazy">' : projectPlaceholder(project)) + '<span class="cover-label">' + escapeText(projectText(project, 'status')) + '</span></span><span class="personal-case-copy"><span class="personal-case-title">' + escapeText(projectText(project, 'title')) + icon('arrow') + '</span><span class="personal-case-description">' + escapeText(projectText(project, 'description')) + '</span>' + projectLanguages(project) + '<span class="personal-case-link">' + t('readConcept') + '</span></span></button></article>';
     return '<article class="personal-project" aria-labelledby="personal-' + escapeText(project.id) + '">' +
       '<span class="personal-index" aria-hidden="true">' + String(index + 1).padStart(2, '0') + '</span>' +
       '<div><h3 id="personal-' + escapeText(project.id) + '">' + escapeText(project.title) + '</h3>' +

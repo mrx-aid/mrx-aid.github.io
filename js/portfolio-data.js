@@ -294,9 +294,68 @@
   });
   Object.assign(axel, { id: 'axel', budget: null, image: 'img/cases/axel-desktop.jpg', width: 1265, height: 712, url: 'https://axellabs.ru/project/',
     gallery: [shot('axel-desktop',1265,712,'Публичная страница AXEL','AXEL public landing page','Тёмная индустриальная композиция и анимация слоёв платформы.','A dark industrial composition with animated platform layers.'),shot('axel-concept',1237,884,'Концепция платформы','Platform concept','Страница о замысле, Axiom ERP и будущем бета-тестировании.','The project page explains the vision, Axiom ERP and future beta testing.')] });
+  portfolio.languageInfo = { state: 'verified', items: ['HTML', 'CSS', 'JavaScript'] };
+  // These are browser-delivered languages only, not claims about each site's backend.
+  [donkontur, grinity, kadr].forEach(function (project) { project.languageInfo = { state: 'frontend', items: ['HTML', 'CSS', 'JavaScript'] }; });
+  grinityVk.languageInfo = { state: 'design', items: [] };
+  axel.languageInfo = { state: 'pending', items: [] };
+  function openwrtProject(id, brand, kind, ru, en, languageInfo, privateSource) {
+    var title = brand + ' · OpenWrt ' + kind;
+    var project = copy({ title: title, label: 'Личный проект · OpenWrt', status: 'В разработке',
+      budgetNote: 'Личный проект · в разработке', description: ru.description,
+      caseStudy: { role: 'Концепция, интерфейс и разработка', state: ru.stage, concept: true,
+        tags: kind === 'Theme' ? ['OpenWrt', 'LuCI', 'Тема оформления'] : ['OpenWrt', 'LuCI', 'VPN-профили'],
+        brief: ru.brief, decisions: [], result: ru.result }
+    }, { title: title, label: 'Personal project · OpenWrt', status: 'In development',
+      budgetNote: 'Personal project · in development', description: en.description,
+      caseStudy: { role: 'Concept, interface & development', state: en.stage, concept: true,
+        tags: kind === 'Theme' ? ['OpenWrt', 'LuCI', 'Interface theme'] : ['OpenWrt', 'LuCI', 'VPN profiles'],
+        brief: en.brief, decisions: [], result: en.result }
+    });
+    Object.assign(project, { id: id, brand: brand, kind: kind, development: true, privateSource: !!privateSource,
+      budget: null, gallery: [], languageInfo: languageInfo });
+    if (!privateSource) project.url = 'https://github.com/mrx-aid/luci-theme-axel';
+    return project;
+  }
+  var axelMesh = openwrtProject('axel-mesh', 'AXEL Mesh', 'Theme', {
+    description: 'Собственная тема для панели LuCI в OpenWrt. Работа над визуальной системой и удобным представлением состояния домашней сети.',
+    stage: 'В разработке · доработка прототипа', brief: 'Сделать повседневное управление роутером понятнее: читаемые показатели, аккуратные формы и единая подача системных разделов.',
+    result: 'Подготовлен первый HTML-прототип. Визуальное направление дорабатывается; установочный пакет и проверка в настоящем LuCI ещё впереди.'
+  }, {
+    description: 'A custom theme for the OpenWrt LuCI interface, exploring a visual system and a clear presentation of home-network status.',
+    stage: 'In development · prototype refinement', brief: 'Make everyday router management clearer through readable metrics, considered forms and consistent system pages.',
+    result: 'An initial HTML prototype is available. The visual direction is being refined; an installable package and real LuCI testing are still ahead.'
+  }, { state: 'verified', items: ['HTML', 'CSS', 'JavaScript'] });
+  var atlasTheme = openwrtProject('atlas-openwrt', 'ATLAS', 'Theme', {
+    description: 'Тема OpenWrt на основе визуального наследия моей киберспортивной платформы ATLAS: чёрный, белый, синий акцент и оригинальная символика.',
+    stage: 'В разработке · интерактивный прототип', brief: 'Перенести узнаваемый характер ATLAS в интерфейс роутера, сохранив удобство на узких экранах и в светлом и тёмном режимах.',
+    result: 'В прототипе работают Light/Dark, адаптивная компоновка, верхняя бегущая строка и меню профиля с оригинальной заглушкой аватара. Интеграция с LuCI ещё не завершена.'
+  }, {
+    description: 'An OpenWrt theme inspired by my earlier ATLAS esports platform: black, white, a blue accent and the original brand assets.',
+    stage: 'In development · interactive prototype', brief: 'Bring the recognisable ATLAS identity into a router interface while keeping narrow screens and light/dark modes usable.',
+    result: 'The prototype includes Light/Dark, responsive layouts, a top ticker and a profile menu with the original avatar placeholder. LuCI integration is not yet complete.'
+  }, { state: 'verified', items: ['HTML', 'CSS', 'JavaScript'] });
+  var mrxTheme = openwrtProject('mrx-openwrt', 'MRx', 'Theme', {
+    description: 'Отдельная авторская тема OpenWrt. Её визуальный характер будет проработан самостоятельно, а не сведён к смене цвета другой темы.',
+    stage: 'В разработке · концепция', brief: 'Разработать собственное направление MRx для LuCI и затем согласовать основные экраны и состояния интерфейса.',
+    result: 'Позиция проекта подготовлена. Финальный дизайн MRx пока не выбран; скриншоты и описание реализованных решений появятся после согласования.'
+  }, {
+    description: 'A distinct personal OpenWrt theme. Its visual identity will be developed independently rather than reduced to a recolour of another theme.',
+    stage: 'In development · concept', brief: 'Develop a dedicated MRx direction for LuCI, then review its main screens and interface states.',
+    result: 'The project entry is prepared. The final MRx design is not selected yet; screenshots and implementation details will follow after approval.'
+  }, { state: 'planned', items: ['HTML', 'CSS', 'JavaScript'] });
+  var vpnTunneling = openwrtProject('vpn-tunneling', 'VPN-Tunneling', 'Module', {
+    description: 'Модуль LuCI для управления VPN-профилями. WireGuard, AmneziaWG, VLESS и Hysteria 2 — первые направления разработки, TrustTunnel запланирован отдельно.',
+    stage: 'В разработке · импорт черновиков', brief: 'Объединить разные VPN-профили в понятном интерфейсе: ручная настройка, импорт файлов и ссылок, диагностика и управляемое применение сетевых изменений.',
+    result: 'Реализована основа пакета и структурный разбор черновиков с автоматическими тестами. Сохранение на роутер, реальные подключения и маршрутизация ещё не реализованы. Исходный код хранится в закрытом репозитории.'
+  }, {
+    description: 'A LuCI module for VPN profile management. WireGuard, AmneziaWG, VLESS and Hysteria 2 are the initial development targets, with TrustTunnel planned separately.',
+    stage: 'In development · draft imports', brief: 'Bring VPN profiles into a clear interface with manual configuration, file and URI imports, diagnostics and controlled network changes.',
+    result: 'The package foundation and structural draft parsers are implemented with automated tests. Router persistence, live connections and routing are not implemented yet. Source code is kept private.'
+  }, { state: 'verified', items: ['JavaScript', 'Makefile'] }, true);
   window.PORTFOLIO = {
     contacts: { telegram: 'https://t.me/mrx_adm', vk: 'https://vk.ru/escl.nesss', email: 'alex.azimov@icloud.com' },
     projects: [portfolio, donkontur, grinityVk, grinity, kadr],
-    personalProjects: [axel, {id:'atlas',title:'ATLAS',archived:true}, {id:'escl-network',title:'ESCL-Network',archived:true}]
+    personalProjects: [axel, axelMesh, atlasTheme, mrxTheme, vpnTunneling, {id:'atlas',title:'ATLAS',archived:true}, {id:'escl-network',title:'ESCL-Network',archived:true}]
   };
 }());

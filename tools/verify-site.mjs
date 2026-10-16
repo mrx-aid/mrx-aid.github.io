@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -53,4 +54,32 @@ assert.equal((sitemap.match(/<loc>/g)||[]).length,manifest.pageFiles.length);
 const ruHome=fs.readFileSync(path.join(dist,'index.html'),'utf8');
 assert.equal((ruHome.match(/class="service-trigger" data-service=/g)||[]).length,6);
 assert.equal((ruHome.match(/data-project="/g)||[]).length,5);
+const sandbox = { window: {} };
+vm.runInNewContext(fs.readFileSync(path.join(root,'js/portfolio-data.js'),'utf8'),sandbox);
+vm.runInNewContext(fs.readFileSync(path.join(root,'js/project-meta.js'),'utf8'),sandbox);
+const projects = sandbox.window.PORTFOLIO;
+const meta = sandbox.window.PROJECT_META;
+for (const project of [...projects.projects,...projects.personalProjects.filter(p=>p.caseStudy)]) {
+  assert(project.languageInfo, project.id+': language metadata required');
+  for (const lang of ['ru','en']) {
+    const prefix = lang === 'en' ? 'en/' : '';
+    const group = projects.projects.includes(project) ? 'work/' : 'personal/';
+    const html = fs.readFileSync(path.join(dist,prefix+group+project.id+'/index.html'),'utf8');
+    assert(html.includes(meta.languages(project,lang)), project.id+': language tags rendered');
+    assert(!html.includes('src="/undefined"'),project.id+': no missing image');
+    if (project.development) {
+      assert(html.includes(lang==='ru'?'В разработке':'In development'));
+      assert(html.includes('OpenWrt '+project.kind));
+      assert(!html.includes('href="#screens"'),project.id+': no empty gallery action');
+      assert(!/<h2>(Решения|Decisions)<\/h2>/.test(html),project.id+': no empty decisions');
+    }
+    if (project.privateSource) {
+      assert(!/github\.com\/mrx-aid\/OpenWrt-custom/.test(html),project.id+': no private repository link');
+      assert(html.includes(lang==='ru'?'Закрытый исходный код':'Private source code'));
+    }
+  }
+}
+assert.equal(projects.personalProjects.filter(p=>p.development).length,4);
+assert(meta.languages(projects.projects.find(p=>p.id==='grinity-vk'),'ru').includes('Graphical work'));
+assert(!meta.languages({languageInfo:{state:'verified',items:['<script>']}},'ru').includes('<script>'));
 console.log(`Verified ${manifest.pageFiles.length} HTML pages: unique metadata, reciprocal languages, JSON-LD, sitemap, ${checkedLinks} local references and complete galleries.`);

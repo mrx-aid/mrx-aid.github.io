@@ -13,6 +13,8 @@ vm.runInNewContext(fs.readFileSync(path.join(root, 'js/messages.js'), 'utf8'), c
 vm.runInNewContext(fs.readFileSync(path.join(root, 'js/portfolio-data.js'), 'utf8'), context);
 const messages = context.window.PORTFOLIO_MESSAGES;
 const data = context.window.PORTFOLIO;
+vm.runInNewContext(fs.readFileSync(path.join(root, 'js/project-meta.js'), 'utf8'), context);
+const meta = context.window.PROJECT_META;
 const contracts = JSON.parse(fs.readFileSync(path.join(root, 'source/contracts.json'), 'utf8'));
 const services = JSON.parse(fs.readFileSync(path.join(root, 'source/services.json'), 'utf8'));
 fs.writeFileSync(path.join(root, 'js/contracts-data.js'), 'window.PORTFOLIO_CONTRACTS = ' + JSON.stringify(contracts).replace(/</g, '\\u003c') + ';\n');
@@ -116,7 +118,7 @@ function staticProjectCards(language) {
     const amount = Number.isFinite(project.budget)
       ? '<div class="project-budget"><span class="project-budget-label">' + (language === 'ru' ? 'Бюджет' : 'Budget') + '</span><strong>' + new Intl.NumberFormat(language === 'ru' ? 'ru-RU' : 'en-US').format(project.budget) + ' ₽</strong></div>'
       : '<div class="project-budget project-budget-note">' + escape(field(project, 'budgetNote')) + '</div>';
-    return '<figure class="project-card real-project' + (project.featured ? ' featured-project' : '') + '" data-project="' + project.id + '"><a class="project-cover project-open" href="' + url + '" aria-label="' + (language === 'ru' ? 'Подробнее: ' : 'Details: ') + title + '"><img src="' + project.image + '" width="' + project.width + '" height="' + project.height + '" alt="' + title + '" loading="lazy"><span class="cover-label">' + escape(field(project, 'status')) + '</span></a><figcaption class="project-caption"><a class="project-detail-button" href="' + url + '">' + title + '</a><p>' + escape(field(project, 'label')) + '</p>' + amount + '</figcaption></figure>';
+    return '<figure class="project-card real-project' + (project.featured ? ' featured-project' : '') + '" data-project="' + project.id + '"><a class="project-cover project-open" href="' + url + '" aria-label="' + (language === 'ru' ? 'Подробнее: ' : 'Details: ') + title + '"><img src="' + project.image + '" width="' + project.width + '" height="' + project.height + '" alt="' + title + '" loading="lazy"><span class="cover-label">' + escape(field(project, 'status')) + '</span></a><figcaption class="project-caption"><a class="project-detail-button" href="' + url + '">' + title + '</a><p>' + escape(field(project, 'label')) + '</p>' + meta.languages(project, language) + amount + '</figcaption></figure>';
   }).join('');
 }
 
@@ -147,7 +149,7 @@ for (const match of source.matchAll(/\b(?:src|href)="([^"#]+)"/g)) {
 }
 assets.add('css/content-pages.css');
 assets.add('js/content-pages.js');
-const contentPages = createContentPages({ write, data, services, config, source, localize });
+const contentPages = createContentPages({ write, data, services, config, source, localize, meta });
 for (const asset of assets) {
   if (!asset.endsWith('.css')) continue;
   const css = fs.readFileSync(path.join(root, asset), 'utf8');

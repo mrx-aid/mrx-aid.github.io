@@ -1,0 +1,18 @@
+/* Language dots follow GitHub Linguist colors; text remains readable without color. */
+.project-languages{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin:15px 0 0;line-height:1.5;text-align:left;font-size:12px;color:#d4e1f1;max-width:100%}
+.project-languages-label{flex-basis:100%;color:#a5b9d2;font-size:10px;letter-spacing:.055em}
+.language-tag{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.language-dot{width:10px;height:10px;border-radius:50%;flex:none;background:#8b949e;box-shadow:0 0 0 1px #ffffff18}
+.lang-html{background:#e34c26}.lang-css{background:#663399}.lang-javascript{background:#f1e05a}.lang-makefile{background:#427819}
+.development-state,.private-source{display:inline-flex;align-items:center;gap:7px;font-size:11px;line-height:1.4;padding:6px 9px;margin:8px 8px 0 0;border:1px solid #8db8e445;border-radius:6px;color:#b8d7fa;background:#173453}
+.development-state:before{content:"";width:6px;height:6px;border-radius:50%;background:#e8b75a}
+.private-source{background:transparent;color:#b4c5d8}
+.project-placeholder{display:flex!important;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;min-height:160px;padding:30px;background:linear-gradient(135deg,#142c48,#0c192b);border-bottom:1px solid #9cbce12e;color:#dceaff;overflow-wrap:anywhere}
+.project-placeholder strong{font-size:clamp(24px,3vw,40px);font-weight:500;letter-spacing:-.03em;line-height:1.15}
+.project-placeholder small{font-size:11px;letter-spacing:.1em;color:#a4bcd8}
+.project-link>.project-placeholder{margin:-25px -25px 24px}
+.personal-case-image.project-placeholder{aspect-ratio:16/9;position:relative;padding-top:54px}
+.personal-case-image.project-placeholder .cover-label{position:absolute}
+.personal-case-title{overflow-wrap:anywhere}
+.development-notice{padding:20px 24px;border:1px dashed #7197bd70;border-radius:10px;background:#142b4240;margin:24px 0;color:#c4d4e8}
+@media(max-width:500px){.project-placeholder{padding:24px;min-height:135px}.project-languages{gap:8px 12px;font-size:11px}.language-dot{width:9px;height:9px}}
